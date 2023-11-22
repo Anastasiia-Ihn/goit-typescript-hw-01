@@ -149,19 +149,15 @@ interface Menu {
 }
 
 // Розробіть функцію, яка приймає список страв і фільтрує їх за категорією.
-
-function filterDish(dishes: Menu[]): Menu[] {
-  let arrDishes: Menu[] = [];
-
-  dishes.map((dish: Menu) => {
-    if (dish.category === "main") {
-      return arrDishes.push(dish);
-    }
-  });
-  console.log(arrDishes);
-  return arrDishes;
+interface Menu {
+  name: string;
+  price: number;
+  category: "starter" | "main" | "dessert";
 }
-
+// Розробіть функцію, яка приймає список страв і фільтрує їх за категорією.
+function filterDish(dishes: Menu[]): Menu[] {
+  return dishes.filter((dish: Menu) => dish.category === "main");
+}
 const menu: Menu[] = [
   {
     name: "Fish",
@@ -174,6 +170,34 @@ const menu: Menu[] = [
     category: "dessert",
   },
 ];
+filterDish(menu);
+
+// ------------
+
+// function filterDish(dishes: Menu[]): Menu[] {
+//   let arrDishes: Menu[] = [];
+
+//   dishes.map((dish: Menu) => {
+//     if (dish.category === "main") {
+//       return arrDishes.push(dish);
+//     }
+//   });
+//   console.log(arrDishes);
+//   return arrDishes;
+// }
+
+// const menu: Menu[] = [
+//   {
+//     name: "Fish",
+//     price: 20,
+//     category: "main",
+//   },
+//   {
+//     name: "Teramisu",
+//     price: 20,
+//     category: "dessert",
+//   },
+// ];
 
 filterDish(menu);
 
